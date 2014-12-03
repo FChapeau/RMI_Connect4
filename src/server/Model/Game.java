@@ -1,6 +1,8 @@
 package server.Model;
 
 
+import sun.awt.SunHints;
+
 import java.util.Stack;
 
 public class Game {
@@ -8,25 +10,43 @@ public class Game {
     private Player FirstPlayer;
     private Player SecondPlayer;
     private Board CurrentBoard;
-    private boolean CurrentPlayer;
-    private Stack MoveHistory = new Stack();
+    private Integer ValueToWin;
+    private Integer CurrentPlayer;
+    private Stack<Integer> MoveHistory;
 
-    public Game(Player first, Player second, int rows, int cols)
+    public Game(Player first, Player second, Integer rows, Integer cols, Integer value)
     {
         FirstPlayer = first;
         SecondPlayer = second;
+        ValueToWin = value;
+        Initialize(rows, cols);
+    }
+
+    public void Initialize(Integer rows, Integer cols)
+    {
         this.CurrentBoard = new Board(rows, cols);
-        CurrentPlayer = false;
+        CurrentPlayer = 1;
+        MoveHistory = new Stack<Integer>();
     }
 
     public void ChangeCurrentPlayer()
     {
-        CurrentPlayer = !CurrentPlayer;
+        if(CurrentPlayer == 1)
+        {
+            CurrentPlayer = 2;
+        }
+        else
+        {
+            CurrentPlayer = 1;
+        }
     }
 
-    public void Play(int Col)
+    public void Play(Integer col)
     {
-        //TODO: Not yet implemented!
+        if(CurrentBoard.Play(col, CurrentPlayer)) {
+            ChangeCurrentPlayer();
+            SaveMove(col);
+        }
     }
 
     public void CheckForVictory()
@@ -36,22 +56,27 @@ public class Game {
 
     public void CancelLastMove()
     {
-        //TODO: Not yet implemented!
+        CurrentBoard.Pop(MoveHistory.pop());
     }
 
-    private void SaveMove(int col)
+    private void SaveMove(Integer col)
     {
-        //TODO: Not yet implemented!
+        MoveHistory.push(col);
     }
 
     public void NewGame()
     {
-        //TODO: Not yet implemented!
+        Initialize(CurrentBoard.getRows(), CurrentBoard.getCollumns());
     }
 
     private void ClearBoard()
     {
         //TODO: Not yet implemented!
+    }
+
+    public Integer[][] GetCurrentBoard()
+    {
+        return new Integer[2][3];
     }
 
 

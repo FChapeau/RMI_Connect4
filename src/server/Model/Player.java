@@ -27,9 +27,9 @@ public class Player {
     //Ces deux fonctions privées servent à généré un nom drôle pour les joueurs qui n'en fournissent pas
     private String GenerateRandomName() {
         Random random = new Random();
-        int max = 11;
-        int min = 1;
-        int randomNumber = random.nextInt(max - min) + min;
+        Integer max = 11;
+        Integer min = 1;
+        Integer randomNumber = random.nextInt(max - min) + min;
         return "aw yeah!";
     }
     private String getNameOfCreature(int ID) {
