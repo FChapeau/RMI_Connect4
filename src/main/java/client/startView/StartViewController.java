@@ -3,12 +3,11 @@ package client.startView;
 import client.mainView.MainViewController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import net.sf.lipermi.handler.CallHandler;
 
 import java.io.IOException;
 
@@ -21,10 +20,13 @@ public class StartViewController {
 
     @FXML public void ConnectToServer()
     {
+        int rows = 5;
+        int columns = 5;
+
         //TODO Connection logic
 
         try {
-            OpenMainView(5,5);
+            OpenMainView(rows,columns);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -43,5 +45,7 @@ public class StartViewController {
 
         Stage currentStage = (Stage)ConnectionStringBox.getScene().getWindow();
         currentStage.close();
+
+        CallHandler callHandler;
     }
 }

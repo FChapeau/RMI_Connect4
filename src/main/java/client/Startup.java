@@ -19,7 +19,7 @@ public class Startup extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("startView/StartView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("views/StartView.fxml"));
         primaryStage.setTitle("Connect4 - Server connection");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
