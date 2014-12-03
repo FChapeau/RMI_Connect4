@@ -1,4 +1,4 @@
-package server;
+package server.Model;
 
 import java.util.Random;
 
@@ -23,7 +23,6 @@ public class Player {
     {
         return this.Name;
     }
-
 
     //Ces deux fonctions privées servent à généré un nom drôle pour les joueurs qui n'en fournissent pas
     private String GenerateRandomName() {

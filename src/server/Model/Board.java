@@ -1,4 +1,4 @@
-package server;
+package server.Model;
 
 public class Board {
 
@@ -16,4 +16,15 @@ public class Board {
         Rows = rows;
         Collumns = cols;
     }
+
+    public void Play(int col, int player)
+    {
+        //TODO: Not yet implemented!
+    }
+
+    public void Pop(int col)
+    {
+        //TODO: Not yet implemented!
+    }
+
 }
