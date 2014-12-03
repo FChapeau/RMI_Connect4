@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import net.sf.lipermi.handler.CallHandler;
 
 import java.io.IOException;
 
@@ -45,7 +44,5 @@ public class StartViewController {
 
         Stage currentStage = (Stage)ConnectionStringBox.getScene().getWindow();
         currentStage.close();
-
-        CallHandler callHandler;
     }
 }
