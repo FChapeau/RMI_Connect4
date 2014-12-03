@@ -1,5 +1,6 @@
 package client.startView;
 
+import client.Startup;
 import client.mainView.MainViewController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +34,7 @@ public class StartViewController {
 
     public void OpenMainView( int rows, int columns ) throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(MainViewController.class.getResource("MainView.fxml"));
+        FXMLLoader loader = new FXMLLoader(Startup.class.getResource("views/MainView.fxml"));
         loader.setController(new MainViewController(rows, columns));
 
         Parent root = (Parent) loader.load();
