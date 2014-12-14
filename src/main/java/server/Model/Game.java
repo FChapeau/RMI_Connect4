@@ -1,4 +1,4 @@
-package server.Model;
+package main.java.server.Model;
 
 
 import sun.awt.SunHints;
@@ -49,14 +49,22 @@ public class Game {
         }
     }
 
-    public void CheckForVictory()
+    public boolean CheckForVictory()
     {
-        //TODO: Not yet implemented!
+        Position pos = new Position();
+        pos.setPosX(MoveHistory.peek());
+        //pos.setPosY(LA_POSITION_EN_Y);
+        if(CurrentBoard.CheckHighestNumberOfTokenInLine(pos) == ValueToWin)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void CancelLastMove()
     {
         CurrentBoard.Pop(MoveHistory.pop());
+        ChangeCurrentPlayer();
     }
 
     private void SaveMove(Integer col)
@@ -71,11 +79,13 @@ public class Game {
 
     private void ClearBoard()
     {
-        //TODO: Not yet implemented!
+        CurrentBoard.ClearBoard();
     }
 
     public Integer[][] GetCurrentBoard()
     {
+        //TODO NOT YET IMPLEMENTED
+        //
         return new Integer[2][3];
     }
 

@@ -1,4 +1,4 @@
-package server.Model;
+package main.java.server.Model;
 
 import java.util.Stack;
 
@@ -6,13 +6,8 @@ public class Board {
 
     private Integer Rows;
     private Integer Collumns;
-    private Stack[] Tiles;
+    private Stack<Integer>[] Tiles;
 
-
-    public Board()
-    {
-
-    }
 
     public Board(Integer rows, Integer cols)
     {
@@ -57,6 +52,7 @@ public class Board {
         if(CollumnIsNotEmpty(col))
         {
             Tiles[col].pop();
+
             return true;
         }
         return false;
@@ -75,5 +71,43 @@ public class Board {
     public Integer getCollumns()
     {
         return Collumns;
+    }
+
+    public Integer CheckHighestNumberOfTokenInLine(Position pos) {
+        Integer i = 0;
+        i = CheckVertical(pos);
+        if(CheckHorizontal(pos) > i){i = CheckHorizontal(pos);}
+        if(CheckMainDiagonal(pos) > i){i = CheckMainDiagonal(pos);}
+        if(CheckOffDiagonal(pos) > i){i = CheckOffDiagonal(pos);}
+        return i;
+    }
+
+    private Integer CheckVertical(Position pos)
+    {
+        //Sum the number of tokens below and above target position
+        return 2;
+    }
+
+    private Integer CheckHorizontal (Position pos)
+    {
+        //Sum the number of tokens on both sides of target position
+        return 2;
+    }
+
+    private Integer CheckMainDiagonal(Position pos)
+    {
+        //Sum the number of tokens on the main diagonal of target position
+        return 2;
+    }
+
+    private Integer CheckOffDiagonal(Position pos)
+    {
+        //Sum the number of tokens on the off diagonal of target position
+        return 2;
+    }
+
+    private Integer CheckTargetPosition(Position pos)
+    {
+        return Tiles[pos.getPosX()].get(pos.getPosY());
     }
 }
