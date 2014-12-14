@@ -1,7 +1,7 @@
-package client.startView;
+package main.java.client.startView;
 
-import client.Startup;
-import client.mainView.MainViewController;
+import main.java.client.Startup;
+import main.java.client.mainView.MainViewController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
