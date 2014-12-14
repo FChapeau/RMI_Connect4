@@ -1,6 +1,8 @@
 package main.java.server.Controller;
 
 import main.java.client.Controller.IClientObserver;
+import main.java.server.Model.Board;
+import main.java.server.Model.Game;
 import net.sf.lipermi.exception.LipeRMIException;
 import net.sf.lipermi.net.IServerListener;
 import net.sf.lipermi.handler.CallHandler;
@@ -10,15 +12,14 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.net.Socket;
 
-/**
- * Created by boivi_000 on 2014-12-13.
- */
 public class ServerController extends Server implements IServerObserver{
     private LinkedList<IClientObserver> observers;
+    private Game game;
 
     public ServerController()
     {
         this.observers = new LinkedList<IClientObserver>();
+        game = new Game();
         CallHandler callHandler = new CallHandler();
         try
         {
@@ -80,11 +81,23 @@ public class ServerController extends Server implements IServerObserver{
         }
 
     public void Play(int stack) {
+        game.Play(stack);
+        Update();
+    }
 
+    private void Update() {
+        //foreach observer in observers
+        //update visual info
+        //...
+        //...
+        //...
+        //.........
+        //...
+        //BITCHES!
     }
 
     public void GetCurrentGameState() {
-
+        
     }
 
     private class MyServerListener implements IServerListener

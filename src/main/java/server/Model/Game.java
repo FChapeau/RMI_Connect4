@@ -14,6 +14,11 @@ public class Game {
     private Integer CurrentPlayer;
     private Stack<Integer> MoveHistory;
 
+    public Game()
+    {
+
+    }
+
     public Game(Player first, Player second, Integer rows, Integer cols, Integer value)
     {
         FirstPlayer = first;
