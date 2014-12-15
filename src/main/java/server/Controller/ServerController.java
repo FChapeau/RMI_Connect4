@@ -97,7 +97,7 @@ public class ServerController extends Server implements IServerObserver{
     }
 
     public void GetCurrentGameState() {
-        
+
     }
 
     private class MyServerListener implements IServerListener
