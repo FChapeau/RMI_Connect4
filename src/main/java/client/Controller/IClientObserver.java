@@ -1,4 +1,4 @@
-package main.java.client.Controller;
+package client.Controller;
 
 /**
  * Created by boivi_000 on 2014-12-13.
