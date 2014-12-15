@@ -1,13 +1,14 @@
 package client.startView;
 
 import client.Startup;
-import client.mainView.MainViewController;
+import client.mainView.MainViewControllerFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
 
@@ -21,7 +22,7 @@ public class StartViewController {
     @FXML public void ConnectToServer()
     {
         int rows = 5;
-        int columns = 5;
+        int columns = 10;
 
         //TODO Connection logic
 
@@ -35,7 +36,7 @@ public class StartViewController {
     public void OpenMainView( int rows, int columns ) throws IOException
     {
         FXMLLoader loader = new FXMLLoader(Startup.class.getResource("views/MainView.fxml"));
-        loader.setController(new MainViewController(rows, columns));
+        loader.setControllerFactory((Callback)new MainViewControllerFactory(rows, columns));
 
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
