@@ -1,4 +1,4 @@
-package main.java.server.Model;
+package server.Model;
 
 import java.util.Stack;
 

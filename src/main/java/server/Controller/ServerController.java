@@ -1,6 +1,6 @@
-package main.java.server.Controller;
+package server.Controller;
 
-import main.java.client.Controller.IClientObserver;
+import client.Controller.IClientObserver;
 import net.sf.lipermi.exception.LipeRMIException;
 import net.sf.lipermi.net.IServerListener;
 import net.sf.lipermi.handler.CallHandler;

@@ -1,4 +1,4 @@
-package main.java.client.mainView;
+package client.mainView;
 
 import javafx.fxml.FXMLLoader;
 

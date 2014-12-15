@@ -1,6 +1,6 @@
-package main.java.server.Controller;
+package server.Controller;
 
-import main.java.client.Controller.IClientObserver;
+import client.Controller.IClientObserver;
 
 /**
  * Created by boivi_000 on 2014-12-13.

@@ -1,4 +1,4 @@
-package main.java.server.Model;
+package server.Model;
 
 /**
  * Created by boivi_000 on 2014-12-13.
