@@ -51,16 +51,15 @@ public class MainViewController implements Initializable{
     private void GenerateGameGrid()
     {
         //TODO Prettification of gamegrid
-        //TODO Solving the damned display problems...
         for (Integer i = 0; i < columns; i++)
         {
             ColumnConstraints column = new ColumnConstraints();
             column.setPercentWidth(100/columns);
             GameGrid.getColumnConstraints().add(column);
 
-            for (Integer j = 0; j <= rows; j++)
+            for (Integer j = 0; j < rows +1; j++)
             {
-                if (i == 0 && j != rows)
+                if (i == 0 && j != rows + 1)
                 {
                     RowConstraints row = new RowConstraints();
                     row.setPercentHeight(100/rows);
@@ -74,7 +73,12 @@ public class MainViewController implements Initializable{
 
                     button.setText("V");
                     button.setId("ColumnSelector-" + i);
-                    //TODO Add button action event handler
+                    button.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent actionEvent) {
+                            ColumnButtonClicked(actionEvent);
+                        }
+                    });
 
                     pane.getChildren().addAll(button);
                     GameGrid.add(pane, i, j);
@@ -82,8 +86,8 @@ public class MainViewController implements Initializable{
                 else
                 {
                     Pane pane = new Pane();
-                    pane.setId("Cell-" + j + "-" + i);
-                    displayGrid.put(new Position(j,i), pane);
+                    pane.setId("Cell-" + (j-1) + "-" + i);
+                    displayGrid.put(new Position(j-1,i), pane);
                     GameGrid.add(pane, i, j);
                 }
             }
@@ -118,6 +122,13 @@ public class MainViewController implements Initializable{
         {
             SetCellColor(pos.getPosX(), pos.getPosY(), Color.RED);
         }
+    }
+
+    public void ColumnButtonClicked (ActionEvent event){
+        //TODO Button clicking logic
+        Button source = (Button)event.getSource();
+        //This is the clicked button's column. Use it for... whatever... I'm not your mom or anything.
+        int selectedColumn = Integer.parseInt(source.getId().split("-")[1]);
     }
 
     private Position ParseCellName(String name)

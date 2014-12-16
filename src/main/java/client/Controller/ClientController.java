@@ -1,4 +1,4 @@
-package main.java.client.Controller;
+package client.Controller;
 
 import net.sf.lipermi.handler.CallHandler;
 import net.sf.lipermi.net.Client;
